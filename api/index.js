@@ -25,9 +25,7 @@ app.use("/user_categories", userCategoryRoutes);
 //
 
 // when a random route is inputed
-app.get("/", (req, res) => {
-  //to do - running into issues when sending file
-});
+// app.get("/", (req, res) => {});
 
 app.listen(port, () => {
   console.log(`Server is running on PORT ${port}`);
