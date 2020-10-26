@@ -5,7 +5,7 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
-const config = require("/Users/bibianasouza/Desktop/Chatr/config/config.json")[
+const config = require("../config/config.json")[
   env
 ];
 const db = {};
@@ -41,24 +41,24 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-//Models/tables
-const users = sequelize.define("Users");
-const categories = sequelize.define("Categories");
-const user_categories = sequelize.define("User_categories");
+// //Models/tables
+// const users = sequelize.define("Users");
+// const categories = sequelize.define("Categories");
+// const user_categories = sequelize.define("User_categories");
 
-//Relations
-// db.Categories.hasMany(db.users);
-categories.associate = (models) => {
-  categories.belongsToMany(db.users, {
-    through: "User_categories",
-  });
-};
+// //Relations
+// // db.Categories.hasMany(db.users);
+// categories.associate = (models) => {
+//   categories.belongsToMany(db.users, {
+//     through: "User_categories",
+//   });
+// };
 
-users.associate = (models) => {
-  users.belongsToMany(db.categories, {
-    through: "User_categories",
-  });
-};
+// users.associate = (models) => {
+//   users.belongsToMany(db.categories, {
+//     through: "User_categories",
+//   });
+// };
 
 //db.Users.hasMany(db.categories);
 // unsure if I need to declare the belongs to relationship here

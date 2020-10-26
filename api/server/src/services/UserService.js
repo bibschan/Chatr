@@ -1,4 +1,4 @@
-import db from "../models/index.js";
+import db from "../../../../models/index.js";
 
 //a service helps you interface with your model (database)
 class UserService {

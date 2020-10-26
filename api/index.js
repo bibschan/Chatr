@@ -1,9 +1,9 @@
 import config from "dotenv";
 import express from "express";
 // import bodyParser from "body-parser";
-import userRoutes from "./server/src/routes/UserRoutes.js";
-import categoryRoutes from "./server/src/routes/CategoriesRouter.js";
-import userCategoryRoutes from "./server/src/routes/UserCategoriesRouter.js";
+import userRoutes from "./../api/server/src/routes/UserRoutes.js";
+import groupRoutes from "./../api/server/src/routes/GroupRoutes.js";
+import userChoicesRoutes from "./../api/server/src/routes/UserChoicesRoutes.js";
 
 const cors = require("cors");
 
@@ -20,8 +20,8 @@ const port = process.env.PORT || 3000;
 
 //
 app.use("/users", userRoutes);
-app.use("/categories", categoryRoutes);
-app.use("/user_categories", userCategoryRoutes);
+app.use("/groups", groupRoutes);
+app.use("/userChoices", userChoicesRoutes);
 //
 
 // when a random route is inputed

@@ -1,4 +1,4 @@
-import UserService from "../services/UserService";
+import UserService from "./../services/UserService.js";
 import Util from "../utils/Utils";
 
 const util = new Util();
@@ -82,7 +82,7 @@ class UserController {
     const { id } = req.params;
 
     if (!Number(id)) {
-      util.setError(400, "Please provide a numeric value");
+      util.setError(400, "Please provide a numeric id value");
       return util.send(res);
     }
 
