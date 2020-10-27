@@ -7,7 +7,7 @@ router.get("/", UserChoicesController.getAllUserChoices);
 router.post("/", UserChoicesController.createUserChoice);
 router.get("/:id", UserChoicesController.getUserChoices);
 // router.get("/", UserChoicesController.getGroupChoices);
-// router.put("/:id", UserChoicesController.updatedUser);
+// router.get("/:id/:id", UserChoicesController.triggerForMovieGroupMatch);
 router.delete("/:id", UserChoicesController.deleteChoice);
 // router.post("/login", UserChoicesController.getUserByEmail);
 

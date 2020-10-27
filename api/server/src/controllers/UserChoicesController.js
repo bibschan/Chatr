@@ -34,17 +34,15 @@ class UserChoicesController {
         }
     }
     static async createUserChoice(req,res) {
-        // I didn't make groupId a requirement cause a user might not have a group
-        if (!req.body.movieId || !req.body.userIdFK) {
+        if (!req.body.movieId || !req.body.userIdFK || !req.body.groupIdFK) {
             util.setError(400, "Please provide a userId and movieId details");
             return util.send(res);
           }
-        console.log(req);
-        const userChoice = req.body;
-        
+        // console.log(req);
+          // throwing error mesmo quando insere na database com sucesso?
         try {
-            // there's something wrong with the ID increment???
-            const user = await UserChoicesService.createUserChoice(userChoice);
+            
+            const user = await UserChoicesService.createUserChoice(req.body);
             if(user) {
                 util.setSuccess(200, "User Choice Created!", user);
             } else {

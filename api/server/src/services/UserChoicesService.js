@@ -1,7 +1,7 @@
 import db from "../../../../models/index.js";
 
 class UserChoicesService {
-    static async getAllUserChoices() {
+    static async getAllChoices() {
         try {
             console.log(db.UserChoices);
             return await db.UserChoices.findAll();
@@ -9,13 +9,17 @@ class UserChoicesService {
             throw error;
           }
     }
+
+    //this route is not working properly, says there's 
+    //bad syntax in the request
     static async getUserChoices(userIdFK) {
         //gets all choices one specific user has made
         try {
-            // console.log(id);
+            console.log(userIdFK);
             const userChoices = await db.UserChoices.findAll({
-                where: { userIdFK: Number(userIdFK)},
+                where: {userIdFK: Number(userIdFK)}
               });
+              console.log(userChoices);
               return userChoices;
           } catch (error) {
             throw error;
@@ -34,6 +38,7 @@ class UserChoicesService {
     //         throw error;
     //       }
     // }
+
     // should I call this function somewhere?
     static async triggerForMovieGroupMatch(groupIdFK, movieId) {
         try {
@@ -52,9 +57,16 @@ class UserChoicesService {
 
     static async createUserChoice(userChoice) {
         try {
-            if(userChoice.movieId !== null && userChoice.groupIdFK !== null) {
-                return await db.UserChoices.create(userChoice);
-            }
+          // console.log("service: " + userChoice.movieId);
+          // let createChoice = await db.UserChoices.create(userChoice);
+          const createChoice = await db.UserChoices.create({
+            movieId: userChoice.movieId,
+            userIdFK: userChoice.userIdFK,
+            groupIdFK: userChoice.groupIdFK
+          });
+        
+          
+          return createChoice;
           } catch (error) {
             throw error;
           }

@@ -1,8 +1,5 @@
 "use strict";
 
-const groups = require("./groups");
-
-
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define(
     "Users",
@@ -16,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Users.associate = function (models) {
     Users.belongsToMany(models.Groups, {through: 'UserGroups', foreignKey: 'userIdFK'})
-    Users.hasMany(models.UserChoices, {as: 'userIdFK'})
+    // Users.hasMany(models.UserChoices, {as: 'userIdFK'})
   };
   return Users;
 };

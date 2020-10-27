@@ -8,12 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      // groupId: {
-      //   type: Sequelize.INTEGER
-      // },
-      // movieId: {
-      //   type: Sequelize.INTEGER
-      // },
+      groupIdFK: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Groups',
+          key: 'id'
+        }
+      },
+      movieId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

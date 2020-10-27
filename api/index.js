@@ -4,6 +4,7 @@ import express from "express";
 import userRoutes from "./../api/server/src/routes/UserRoutes.js";
 import groupRoutes from "./../api/server/src/routes/GroupRoutes.js";
 import userChoicesRoutes from "./../api/server/src/routes/UserChoicesRoutes.js";
+import groupChoicesRoutes from "./../api/server/src/routes/GroupChoicesRoutes.js";
 
 const cors = require("cors");
 
@@ -21,7 +22,8 @@ const port = process.env.PORT || 3000;
 //
 app.use("/users", userRoutes);
 app.use("/groups", groupRoutes);
-app.use("/userChoices", userChoicesRoutes);
+app.use("/userchoices", userChoicesRoutes);
+app.use("/groupchoices", groupChoicesRoutes);
 //
 
 // when a random route is inputed

@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
         function findMatch() {
           UserChoices.findAll({
             where: {
-              groupId: user.groupIdFK,
-              movieId: user.movieId
+              // groupIdFK: user.groupIdFK,
+              // movieId: user.movieId
             }
           })  
         } 
