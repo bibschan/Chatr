@@ -61,7 +61,7 @@ class GroupChoicesController {
             return util.send(res);
           }
           // not deleting because of the foreign key. do i need to set
-          // onDelete: "SET NULL" ? I don't want to cascade
+          // onDelete: "SET NULL" ? I don't want to cascade 
         try {
             const group = await GroupChoicesService.deleteChoice(req.params);
             if(group) {
